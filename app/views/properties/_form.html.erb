@@ -11,7 +11,32 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :物件名 %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :賃料 %>
+    <%= form.text_field :price %>円
+  </div>
+  <div class="field">
+    <%= form.label :住所 %>
+    <%= form.text_field :address %>
+  </div>
+  <div class="field">
+    <%= form.label :築年数 %>
+    <%= form.text_field :years %>年
+  </div>
+  <div class="field">
+    <%= form.label :備考 %>
+    <%= form.text_area :etc %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <% if request.path_info == new_property_path %>
+      <%= form.submit "登録する"%>
+    <% else %>
+      <%= form.submit "更新する"%>
+    <% end %>
   </div>
 <% end %>
