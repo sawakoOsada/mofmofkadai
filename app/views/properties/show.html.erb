@@ -1,13 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<<<<<<< HEAD
 <p><strong>物件名：</strong><%= @property.name %></p>
 <p><strong>賃料：</strong><%= @property.price %>円</p>
 <p><strong>住所：</strong><%= @property.address %></p>
 <p><strong>築年数 </strong><%= @property.years %>年</p>
 <p><strong>備考 </strong><%= @property.etc %></p>
 
-=======
->>>>>>> 4c5bd26... CRUD機能実装
+<hr>
+
+<% if @stations.any? %>
+  <% @stations.each do |station| %>
+    <p><strong>路線名：</strong><%= station.route_name %></p>
+    <p><strong>駅名：</strong><%= station.station_name %></p>
+    <p><strong>徒歩分数：</strong><%= station.minutes %></p>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
