@@ -34,7 +34,7 @@ class PropertiesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @property.update(property_params)
+      if @property.update(update_property_params)
         format.html { redirect_to @property, notice: 'Property was successfully updated.' }
         format.json { render :show, status: :ok, location: @property }
       else
@@ -67,6 +67,21 @@ class PropertiesController < ApplicationController
         stations_attributes: [:route_name,
                               :station_name,
                               :minutes]
+      )
+    end
+
+    def update_property_params
+      params.require(:property).permit(
+        :name,
+        :price,
+        :address,
+        :years,
+        :etc,
+        stations_attributes: [:route_name,
+                              :station_name,
+                              :minutes,
+                              :_destroy,
+                              :id]
       )
     end
 end

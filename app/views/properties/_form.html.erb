@@ -33,9 +33,10 @@
   </div>
 
   <hr>
-
+  <% station_number = 0 %>
   <%= f.fields_for :stations do |s| %>
-  <h2>最寄り駅</h2>
+  <% station_number += 1 %>
+  <h2>最寄り駅<%= station_number %></h2>
     <div class="field">
       <%= s.label :路線名%>
       <%= s.text_field :route_name %>
@@ -46,7 +47,7 @@
     </div>
     <div class="field">
       <%= s.label :徒歩分数%>
-      <%= s.text_field :minutes %>
+      <%= s.text_field :minutes %>分
     </div>
   <% end %>
 
